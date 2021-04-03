@@ -5,20 +5,48 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import com.eliseylobanov.recipes.ApiStatus
 import com.eliseylobanov.recipes.R
+import com.eliseylobanov.recipes.databinding.FavoritesFragmentBinding
+import com.eliseylobanov.recipes.databinding.RandomFragmentBinding
+import com.eliseylobanov.recipes.ui.MealsAdapter
+import com.eliseylobanov.recipes.ui.random.RandomFragmentDirections
+import com.eliseylobanov.recipes.ui.random.RandomViewModel
 
 class FavoritesFragment : Fragment(R.layout.favorites_fragment) {
 
     private val viewModel: FavoritesViewModel by lazy {
-        ViewModelProviders.of(this).get(FavoritesViewModel::class.java)
+        val activity = requireNotNull(this.activity)
+        ViewModelProvider(this, FavoritesViewModel.Factory(activity.application)).get(FavoritesViewModel::class.java)
     }
+
+    lateinit var binding: FavoritesFragmentBinding
+    lateinit var adapter: MealsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.favorites_fragment, container, false)
-    }
+        binding = FavoritesFragmentBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
 
+        adapter = MealsAdapter(MealsAdapter.OnClickListener {
+            viewModel.displayRecipeDetails(it)
+        })
+
+        binding.favoritesRecycler.adapter = adapter
+
+        viewModel.navigateToSelectedRecipe.observe(viewLifecycleOwner, {
+            if (null != it) {
+                this.findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToDetailsFragment(it))
+                viewModel.displayRecipeDetailsComplete()
+            }
+        })
+
+        return binding.root
+    }
 }

@@ -52,7 +52,8 @@ data class DatabaseMeal constructor(
     val strMeasure6: String?,
     val strMeasure7: String?,
     val strMeasure8: String?,
-    val strMeasure9: String?)
+    val strMeasure9: String?,
+    var isFavorite: Boolean)
 
 fun List<DatabaseMeal>.asDomainModel(): ArrayList<Meal> {
     return map {
@@ -102,6 +103,7 @@ fun List<DatabaseMeal>.asDomainModel(): ArrayList<Meal> {
             strMeasure17 = it.strMeasure17,
             strMeasure18 = it.strMeasure18,
             strMeasure19 = it.strMeasure19,
-            strMeasure20 = it.strMeasure20)
+            strMeasure20 = it.strMeasure20,
+            isFavorite = it.isFavorite)
     } as ArrayList<Meal>
 }

@@ -17,7 +17,7 @@
         android:background="@color/colorSecondary">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/asteroid_recycler"
+            android:id="@+id/randomRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

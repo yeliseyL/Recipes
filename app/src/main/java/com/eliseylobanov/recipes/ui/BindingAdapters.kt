@@ -24,3 +24,12 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Meal>?) {
     val adapter = recyclerView.adapter as MealsAdapter
     adapter.submitList(data)
 }
+
+@BindingAdapter("favoriteImage")
+fun bindDetailsFavoriteImage(imageView: ImageView, isFavorite: Boolean) {
+    if (isFavorite) {
+        imageView.setImageResource(R.drawable.ic_favorite_solid)
+    } else {
+        imageView.setImageResource(R.drawable.ic_favorite)
+    }
+}

@@ -3,14 +3,21 @@ package com.eliseylobanov.recipes.database
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.eliseylobanov.recipes.entities.Meal
 
 @Dao
 interface MealDao {
     @Query("SELECT * FROM meal_table")
     fun getAllRecipes(): LiveData<List<DatabaseMeal>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(asteroids: List<DatabaseMeal>)
+
+    @Update
+    suspend fun update(meal: DatabaseMeal)
+
+    @Query("SELECT * FROM meal_table WHERE isFavorite = 1")
+    fun getAllFavorites(): LiveData<List<DatabaseMeal>>
 }
 
 @Database(entities = [DatabaseMeal::class], version = 1)

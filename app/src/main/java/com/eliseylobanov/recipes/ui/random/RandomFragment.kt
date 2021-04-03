@@ -35,7 +35,7 @@ class RandomFragment : Fragment(R.layout.random_fragment) {
             viewModel.displayRecipeDetails(it)
         })
 
-        binding.asteroidRecycler.adapter = adapter
+        binding.randomRecycler.adapter = adapter
 
 
         viewModel.status.observe(viewLifecycleOwner, {
