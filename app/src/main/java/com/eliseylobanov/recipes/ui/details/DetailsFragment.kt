@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.eliseylobanov.recipes.R
+import com.eliseylobanov.recipes.databinding.DetailsFragmentBinding
 
 class DetailsFragment : Fragment(R.layout.details_fragment) {
 
@@ -18,6 +19,13 @@ class DetailsFragment : Fragment(R.layout.details_fragment) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.details_fragment, container, false)
+        val binding = DetailsFragmentBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+
+        val meal = DetailsFragmentArgs.fromBundle(requireArguments()).selectedRecipe
+
+        binding.meal = meal
+
+        return binding.root
     }
 }
