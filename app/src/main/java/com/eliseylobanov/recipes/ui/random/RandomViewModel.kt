@@ -4,7 +4,6 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.eliseylobanov.recipes.ApiStatus
-import com.eliseylobanov.recipes.api.MealDBApi
 import com.eliseylobanov.recipes.database.getDatabase
 import com.eliseylobanov.recipes.entities.Meal
 import com.eliseylobanov.recipes.repository.RecipeRepository

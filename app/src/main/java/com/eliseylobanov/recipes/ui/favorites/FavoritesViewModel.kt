@@ -1,15 +1,13 @@
 package com.eliseylobanov.recipes.ui.favorites
 
 import android.app.Application
-import android.util.Log
-import androidx.lifecycle.*
-import com.eliseylobanov.recipes.ApiStatus
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.eliseylobanov.recipes.database.getDatabase
 import com.eliseylobanov.recipes.entities.Meal
 import com.eliseylobanov.recipes.repository.RecipeRepository
-import com.eliseylobanov.recipes.ui.random.RandomViewModel
-import kotlinx.coroutines.launch
-import java.net.UnknownHostException
 
 class FavoritesViewModel(application: Application) : ViewModel() {
     private val _navigateToSelectedRecipe = MutableLiveData<Meal?>()

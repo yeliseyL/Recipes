@@ -3,7 +3,6 @@ package com.eliseylobanov.recipes.database
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.eliseylobanov.recipes.entities.Meal
 
 @Dao
 interface MealDao {

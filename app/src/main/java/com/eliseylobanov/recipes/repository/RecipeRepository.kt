@@ -3,7 +3,6 @@ package com.eliseylobanov.recipes.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.eliseylobanov.recipes.Constants.SEED
 import com.eliseylobanov.recipes.api.MealDBApi
 import com.eliseylobanov.recipes.database.DatabaseMeal
 import com.eliseylobanov.recipes.database.MealDatabase
@@ -13,7 +12,6 @@ import com.eliseylobanov.recipes.entities.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.UnknownHostException
-import kotlin.random.Random
 
 class RecipeRepository(private val database: MealDatabase) {
 

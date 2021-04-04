@@ -6,10 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.eliseylobanov.recipes.R
 import com.eliseylobanov.recipes.databinding.DetailsFragmentBinding
-import com.eliseylobanov.recipes.ui.random.RandomViewModel
 
 
 class DetailsFragment : Fragment(R.layout.details_fragment) {
