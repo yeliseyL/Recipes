@@ -45,16 +45,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="12dp"
-                    android:text="@{meal.strCategory}"
+                    android:text="@{@string/category_area(meal.strCategory, meal.strArea)}"
                     android:textSize="14sp"
                     app:layout_constraintTop_toBottomOf="@+id/mealName" />
 
                 <TextView
-                    android:id="@+id/mealArea"
+                    android:id="@+id/mealIngredients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="12dp"
-                    android:text="@{meal.strArea}"
+                    android:text="@{meal.getIngredients()}"
                     android:textSize="14sp"
                     app:layout_constraintTop_toBottomOf="@+id/mealCategory" />
 
@@ -65,7 +65,7 @@
                     android:padding="12dp"
                     android:text="@{meal.strInstructions}"
                     android:textSize="14sp"
-                    app:layout_constraintTop_toBottomOf="@+id/mealArea" />
+                    app:layout_constraintTop_toBottomOf="@+id/mealIngredients" />
 
                 <ImageView
                     android:id="@+id/like"

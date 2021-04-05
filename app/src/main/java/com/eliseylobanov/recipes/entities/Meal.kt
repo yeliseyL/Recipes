@@ -53,7 +53,29 @@ data class Meal(
     val strMeasure8: String?,
     val strMeasure9: String?,
     var isFavorite: Boolean
-) : Parcelable
+) : Parcelable {
+    fun getIngredients() =
+        ("$strIngredient1: $strMeasure1\n" +
+        "$strIngredient2: $strMeasure2\n" +
+        "$strIngredient3: $strMeasure3\n" +
+        "$strIngredient4: $strMeasure4\n" +
+        "$strIngredient5: $strMeasure5\n" +
+        "$strIngredient6: $strMeasure6\n" +
+        "$strIngredient7: $strMeasure7\n" +
+        "$strIngredient8: $strMeasure8\n" +
+        "$strIngredient9: $strMeasure9\n" +
+        "$strIngredient10: $strMeasure10\n" +
+        "$strIngredient11: $strMeasure11\n" +
+        "$strIngredient12: $strMeasure12\n" +
+        "$strIngredient13: $strMeasure13\n" +
+        "$strIngredient14: $strMeasure14\n" +
+        "$strIngredient15: $strMeasure15\n" +
+        "$strIngredient16: $strMeasure16\n" +
+        "$strIngredient17: $strMeasure17\n" +
+        "$strIngredient18: $strMeasure18\n" +
+        "$strIngredient19: $strMeasure19\n" +
+        "$strIngredient20: $strMeasure20\n").trimMargin(":").trim()
+}
 
 fun List<Meal>.asDatabaseModel(): List<DatabaseMeal> {
     return map {
