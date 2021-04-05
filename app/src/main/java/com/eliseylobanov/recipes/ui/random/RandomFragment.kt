@@ -16,7 +16,10 @@ class RandomFragment : Fragment(R.layout.random_fragment) {
 
     private val viewModel: RandomViewModel by lazy {
         val activity = requireNotNull(this.activity)
-        ViewModelProvider(this, RandomViewModel.Factory(activity.application)).get(RandomViewModel::class.java)
+        ViewModelProvider(
+            this,
+            RandomViewModel.Factory(activity.application)
+        ).get(RandomViewModel::class.java)
     }
 
     lateinit var binding: RandomFragmentBinding
@@ -39,15 +42,25 @@ class RandomFragment : Fragment(R.layout.random_fragment) {
 
         viewModel.status.observe(viewLifecycleOwner, {
             when (it) {
-                ApiStatus.LOADING -> binding.progress.visibility = View.VISIBLE
-                ApiStatus.DONE -> binding.progress.visibility = View.GONE
-                ApiStatus.ERROR -> View.GONE
+                ApiStatus.LOADING -> {
+                    binding.progress.visibility = View.VISIBLE
+                    binding.randomRecycler.visibility = View.GONE
+                }
+                ApiStatus.DONE -> {
+                    binding.progress.visibility = View.GONE
+                    binding.randomRecycler.visibility = View.VISIBLE
+                }
+                ApiStatus.ERROR -> {
+                    binding.progress.visibility = View.VISIBLE
+                    binding.randomRecycler.visibility = View.VISIBLE
+                }
             }
         })
 
         viewModel.navigateToSelectedRecipe.observe(viewLifecycleOwner, {
             if (null != it) {
-                this.findNavController().navigate(RandomFragmentDirections.actionRandomFragmentToDetailsFragment(it))
+                this.findNavController()
+                    .navigate(RandomFragmentDirections.actionRandomFragmentToDetailsFragment(it))
                 viewModel.displayRecipeDetailsComplete()
             }
         })

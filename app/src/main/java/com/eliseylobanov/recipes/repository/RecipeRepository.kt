@@ -3,10 +3,13 @@ package com.eliseylobanov.recipes.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
+import com.eliseylobanov.recipes.BuildConfig
+import com.eliseylobanov.recipes.api.FoodApi
 import com.eliseylobanov.recipes.api.MealDBApi
 import com.eliseylobanov.recipes.database.DatabaseMeal
 import com.eliseylobanov.recipes.database.MealDatabase
 import com.eliseylobanov.recipes.database.asDomainModel
+import com.eliseylobanov.recipes.entities.Joke
 import com.eliseylobanov.recipes.entities.Meal
 import com.eliseylobanov.recipes.entities.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
@@ -39,7 +42,7 @@ class RecipeRepository(private val database: MealDatabase) {
                 }
                 database.mealDao.insertAll(mealList.asDatabaseModel())
             } catch (ex: UnknownHostException) {
-                Log.e("AsteroidRepository", "no network error")
+                Log.e("RecipeRepository", "no network error")
             }
         }
     }

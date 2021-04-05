@@ -1,9 +1,8 @@
 package com.eliseylobanov.recipes
 
 import android.app.Application
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
+import android.os.Build
+import androidx.work.*
 import com.eliseylobanov.recipes.work.GetFoodJokeWorker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,19 +20,13 @@ class RecipesApp : Application() {
     }
 
     private fun setupRecurringWork() {
-//        val constraints = Constraints.Builder()
-//            .setRequiredNetworkType(NetworkType.UNMETERED)
-//            .setRequiresBatteryNotLow(true)
-//            .setRequiresCharging(true)
-//            .apply {
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                    setRequiresDeviceIdle(true)
-//                }
-//            }.build()
+        val constraints = Constraints.Builder()
+            .setRequiresBatteryNotLow(true)
+            .build()
 
         val repeatingRequest
                 = PeriodicWorkRequestBuilder<GetFoodJokeWorker>(1, TimeUnit.DAYS)
-//            .setConstraints(constraints)
+            .setConstraints(constraints)
             .build()
 
         WorkManager.getInstance().enqueueUniquePeriodicWork(

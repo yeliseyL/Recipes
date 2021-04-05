@@ -31,7 +31,6 @@ class RandomViewModel(application: Application) : AndroidViewModel(application) 
     private fun getRandomRecipe() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
-            val mealList = mutableListOf<Meal>()
             try {
                 recipeRepository.refreshRecipes()
                 _status.value = ApiStatus.DONE
