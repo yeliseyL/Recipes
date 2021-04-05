@@ -28,6 +28,8 @@ class RecipeRepository(private val database: MealDatabase) {
             it.asDomainModel()
         } as MutableLiveData<ArrayList<Meal>>
 
+    var searchResults = MutableLiveData<List<Meal>>()
+
     suspend fun update(meal: DatabaseMeal) {
         database.mealDao.update(meal)
     }
@@ -41,6 +43,18 @@ class RecipeRepository(private val database: MealDatabase) {
                     mealList.add(result.meals[0])
                 }
                 database.mealDao.insertAll(mealList.asDatabaseModel())
+            } catch (ex: UnknownHostException) {
+                Log.e("RecipeRepository", "no network error")
+            }
+        }
+    }
+
+    suspend fun searchRecipes(name: String) {
+        withContext(Dispatchers.IO) {
+            try {
+                val result = MealDBApi.retrofitRecipesService.search(name).meals
+                searchResults.postValue(result)
+                database.mealDao.insertAll(result.asDatabaseModel())
             } catch (ex: UnknownHostException) {
                 Log.e("RecipeRepository", "no network error")
             }

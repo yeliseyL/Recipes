@@ -14,4 +14,13 @@
         <item name="colorPrimary">?colorPrimary</item>
         <item name="colorOnPrimary">?colorOnPrimary</item>
     </style>
+
+    <style name="Recipes.AppTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:hint">Search recipes</item>
+        <item name="counterMaxLength">20</item>
+        <item name="endIconCheckable">true</item>
+        <item name="endIconDrawable">@drawable/ic_search</item>
+        <item name="endIconMode">custom</item>
+    </style>
 </resources>
