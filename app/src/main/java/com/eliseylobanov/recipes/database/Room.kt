@@ -31,7 +31,7 @@ fun getDatabase(context: Context): MealDatabase {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(context.applicationContext,
                 MealDatabase::class.java,
-                "asteroids").build()
+                "recipes").build()
         }
     }
     return INSTANCE

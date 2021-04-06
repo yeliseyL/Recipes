@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="detail_imageview_height">300dp</dimen>
+    <dimen name="text_padding">12dp</dimen>
+    <dimen name="rcyclerview_item_image_height">200dp</dimen>
+    <dimen name="text_size">14sp</dimen>
+    <dimen name="like_image_margin_top">12dp</dimen>
+    <dimen name="like_image_margin_end">32dp</dimen>
+</resources>

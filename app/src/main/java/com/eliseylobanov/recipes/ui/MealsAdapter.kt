@@ -9,9 +9,9 @@ import com.eliseylobanov.recipes.databinding.RandomRecyclerItemBinding
 import com.eliseylobanov.recipes.entities.Meal
 
 class MealsAdapter(val onClickListener: OnClickListener) :
-        ListAdapter<Meal, MealsAdapter.AsteroidsViewHolder>(DiffCallback) {
+        ListAdapter<Meal, MealsAdapter.RecipesViewHolder>(DiffCallback) {
 
-    class AsteroidsViewHolder(private var binding: RandomRecyclerItemBinding) :
+    class RecipesViewHolder(private var binding: RandomRecyclerItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
         fun bind(meals: Meal) {
             binding.meals = meals
@@ -30,11 +30,11 @@ class MealsAdapter(val onClickListener: OnClickListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): AsteroidsViewHolder {
-        return AsteroidsViewHolder(RandomRecyclerItemBinding.inflate(LayoutInflater.from(parent.context)))
+                                    viewType: Int): RecipesViewHolder {
+        return RecipesViewHolder(RandomRecyclerItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
-    override fun onBindViewHolder(holder: AsteroidsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecipesViewHolder, position: Int) {
         val meal = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(meal)

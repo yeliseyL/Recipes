@@ -17,7 +17,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/rcyclerview_item_image_height"
                 android:scaleType="centerCrop"
                 imageUrl="@{meals.strMealThumb}" />
 
@@ -26,9 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{meals.strMeal}"
-                android:padding="12dp"
-                android:textSize="14sp"
-                tools:layout_editor_absoluteX="16dp" />
+                android:padding="@dimen/text_padding"
+                android:textSize="@dimen/text_size" />
 
         </LinearLayout>
 

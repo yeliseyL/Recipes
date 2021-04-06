@@ -5,21 +5,15 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Context.NOTIFICATION_SERVICE
 import android.graphics.Color.RED
-import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationCompat.DEFAULT_ALL
 import androidx.core.app.NotificationCompat.PRIORITY_MAX
-import androidx.core.app.NotificationManagerCompat.IMPORTANCE_HIGH
-import androidx.core.content.ContextCompat.getColor
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.eliseylobanov.recipes.BuildConfig
 import com.eliseylobanov.recipes.R
 import com.eliseylobanov.recipes.api.FoodApi
-import com.eliseylobanov.recipes.database.getDatabase
 import com.eliseylobanov.recipes.entities.Joke
-import com.eliseylobanov.recipes.repository.RecipeRepository
 import retrofit2.HttpException
 
 class GetFoodJokeWorker(appContext: Context, params: WorkerParameters):
@@ -61,8 +55,6 @@ class GetFoodJokeWorker(appContext: Context, params: WorkerParameters):
                 NotificationChannel(NOTIFICATION_CHANNEL, NOTIFICATION_NAME, NotificationManager.IMPORTANCE_HIGH)
             channel.enableLights(true)
             channel.lightColor = RED
-            channel.enableVibration(true)
-            channel.vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
             notificationManager.createNotificationChannel(channel)
 
         notificationManager.notify(NOTIFICATION_ID, notification.build())

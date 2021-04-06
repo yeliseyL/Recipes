@@ -4,4 +4,9 @@
     <string name="notification_title">Food Joke of the Day:</string>
     <string name="notification_channel_id">NOTIFICATION_ID</string>
     <string name="category_area">%1$s | %2$s</string>
+    <string name="random_fragment_label">Recipes - Random Recipe</string>
+    <string name="search_fragment_label">Recipes - Search</string>
+    <string name="details_fragment_label">Recipes - Details</string>
+    <string name="favorites_fragment_label">Recipes - Favorites</string>
+    <string name="default_label">Recipes</string>
 </resources>

@@ -1,8 +1,10 @@
 package com.eliseylobanov.recipes
 
 import android.app.Application
-import android.os.Build
-import androidx.work.*
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.eliseylobanov.recipes.work.GetFoodJokeWorker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +13,7 @@ import java.util.concurrent.TimeUnit
 
 class RecipesApp : Application() {
 
-    val applicationScope = CoroutineScope(Dispatchers.Default)
+    private val applicationScope = CoroutineScope(Dispatchers.Default)
 
     private fun delayedInit() {
         applicationScope.launch {

@@ -7,7 +7,6 @@ import com.eliseylobanov.recipes.ApiStatus
 import com.eliseylobanov.recipes.database.getDatabase
 import com.eliseylobanov.recipes.entities.Meal
 import com.eliseylobanov.recipes.repository.RecipeRepository
-import com.eliseylobanov.recipes.ui.random.RandomViewModel
 import kotlinx.coroutines.launch
 import java.net.UnknownHostException
 

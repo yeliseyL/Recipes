@@ -1,6 +1,5 @@
 package com.eliseylobanov.recipes.ui
 
-import android.app.NotificationManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -25,11 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             title = when (destination.id) {
-                R.id.randomFragment -> "Recipes - Random Recipe"
-                R.id.searchFragment -> "Recipes - Search"
-                R.id.favoritesFragment -> "Recipes - Favorites"
-                R.id.detailsFragment -> "Recipes - Details"
-                else -> "Recipes"
+                R.id.randomFragment -> getString(R.string.random_fragment_label)
+                R.id.searchFragment -> getString(R.string.search_fragment_label)
+                R.id.favoritesFragment -> getString(R.string.favorites_fragment_label)
+                R.id.detailsFragment -> getString(R.string.details_fragment_label)
+                else -> getString(R.string.default_label)
             }
         }
     }
