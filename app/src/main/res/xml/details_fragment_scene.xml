@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/tools">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"/>
+        <Constraint
+            android:id="@+id/mealName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            app:layout_constraintEnd_toStartOf="@+id/like"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/mealCategory"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/mealIngredients"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/mealInstructions"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/like"
+            android:alpha="0"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <Constraint
+            android:id="@+id/mealName"
+            android:alpha="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/like"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <Constraint
+            android:id="@+id/mealCategory"
+            android:alpha="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mealName" />
+        <Constraint
+            android:id="@+id/mealIngredients"
+            android:alpha="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mealCategory" />
+        <Constraint
+            android:id="@+id/mealInstructions"
+            android:alpha="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mealIngredients" />
+        <Constraint
+            android:id="@+id/like"
+            android:alpha="1"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:autoTransition="animateToEnd"
+        app:duration="800"/>
+
+</MotionScene>
